@@ -218,7 +218,7 @@ async fn run() -> Result<()> {
         .map(|os_str| os_str.into_string().expect("invalid WALLET_DATABASE_PATH"))
         .unwrap_or_else(|| "./wallet-cli-database".to_string());
     let mut manager = AccountManager::builder()
-        .with_storage(&storage_path, ManagerStorage::Stronghold, None)?
+        .with_storage(&storage_path, ManagerStorage::Sqlite, None)?
         .finish()
         .await?;
 
